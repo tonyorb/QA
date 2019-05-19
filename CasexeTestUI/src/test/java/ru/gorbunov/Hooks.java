@@ -1,4 +1,4 @@
-package hellocucumber;
+package ru.gorbunov;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package hellocucumber;
+package ru.gorbunov;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

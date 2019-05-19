@@ -1,4 +1,4 @@
-package hellocucumber;
+package ru.gorbunov;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
