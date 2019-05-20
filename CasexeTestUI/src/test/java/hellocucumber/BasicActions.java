@@ -47,8 +47,6 @@ public class BasicActions{
 			if (playersWithGivenUserNameCount==0&&playerTablePage.isEmpty()) {
 				playersSummaryCount=0;
 			}
-			System.out.println(playersSummaryCount);
-			System.out.println(playersWithGivenUserNameCount);
 			assertEquals(playersSummaryCount, playersWithGivenUserNameCount);
 			if (playerTablePage.isNextButtonExist() || !playerTablePage.nextButton.isDisplayed()){
 				break;
