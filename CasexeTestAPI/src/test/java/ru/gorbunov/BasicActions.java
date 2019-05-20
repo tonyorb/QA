@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.junit.Assert;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -16,10 +17,9 @@ public class BasicActions {
         requestBody.put("scope", "guest:default");
 
         RequestSpecification request = RestAssured.given().log().method().log().uri().log().body();
-        request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
         
-        Response response = request
+        Response response = request.contentType(ContentType.JSON)
             .auth().preemptive().basic(Config.basicAuthUserName, "")
             .when().post(Config.url+"/v2/oauth2/token");	
         Assert.assertEquals("Код ответа не 200", 200, response.getStatusCode());
@@ -35,10 +35,9 @@ public class BasicActions {
         requestBody.put("password_repeat", randomPlayer.userPassword);
         requestBody.put("email", randomPlayer.userEmail);
         RequestSpecification request = RestAssured.given().log().method().log().uri().log().body();
-        request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
         
-        Response response = request
+        Response response = request.contentType(ContentType.JSON)
             .auth().oauth2(AccessToken)
             .when().post(Config.url+"/v2/players");
         Assert.assertEquals("Код ответа не 201", 201, response.getStatusCode());
@@ -55,10 +54,9 @@ public class BasicActions {
         requestBody.put("password", password);
 
         RequestSpecification request = RestAssured.given().log().method().log().uri().log().body();
-        request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
         
-        Response response = request
+        Response response = request.contentType(ContentType.JSON)
             .auth().preemptive().basic(Config.basicAuthUserName, "")
             .when().post(Config.url+"/v2/oauth2/token");	
         Assert.assertEquals("Код ответа не 200", 200, response.getStatusCode());
